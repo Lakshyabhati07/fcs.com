@@ -160,7 +160,7 @@ function App() {
           
 
           <Route path="/requestCallback" element={<RequestCallback />} />
-
+          <Route path="/fcs.com" element={<Home/>}/>
           <Route
             path="*"
             element={

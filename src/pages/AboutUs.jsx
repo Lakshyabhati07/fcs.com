@@ -43,14 +43,18 @@ const AboutUs = () => {
         <div className="space-y-16 max-w-6xl mx-auto text-justify px-4">
   <Section title="Who We Are?" delay={0.1}>
     {/* Animated Title */}
-    <div className="flex flex-wrap items-center justify-center gap-2 text-3xl font-extrabold tracking-wide ">
-      <h3 className="text-orange-600 animate-fade-in ">Fortune</h3>
-      <h3 className="text-orange-600 animate-slide-in ">Consultants</h3>
-      <h3 className="text-green-800 animate-glow ">
-        : A Decade-Long Vision Realized
-      </h3>
-      
-    </div>
+    <div className="flex flex-wrap items-center justify-center gap-2 text-center">
+  <h3 className="text-orange-600 font-extrabold text-xl sm:text-2xl md:text-3xl lg:text-4xl animate-fade-in">
+    Fortune
+  </h3>
+  <h3 className="text-orange-600 font-extrabold text-xl sm:text-2xl md:text-3xl lg:text-4xl animate-slide-in">
+    Consultants
+  </h3>
+  <h3 className="text-green-800 font-extrabold text-xl sm:text-2xl md:text-3xl lg:text-4xl animate-glow">
+    : A Decade-Long Vision Realized
+  </h3>
+</div>
+
 
     {/* Description */}
     <p className="mt-8 text-lg leading-relaxed text-gray-700 animate-fade-in-up">

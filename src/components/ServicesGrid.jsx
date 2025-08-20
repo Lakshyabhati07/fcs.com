@@ -3,17 +3,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import {
   FaLeaf,
-  
   FaRecycle,
   FaHandsHelping,
   FaFlask,
   FaUtensils,
   FaProjectDiagram,
   FaTint,
-  FaShopify,
-  FaDev,
 } from "react-icons/fa";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+
+// ✅ Import your custom icons
+import retailIcon from "../assets/retail.png";
+import devIcon from "../assets/dev.png";
 
 const allServices = [
   {
@@ -70,47 +71,65 @@ const allServices = [
     icon: <FaLeaf />,
     subServices: [
       "US FDA Registration",
-     
       "Foreign Supplier Verification",
       "Export Inspection Council",
     ],
   },
   {
     title: "Training and Development",
-    icon: <FaDev />,
+    // 🔄 Updated icon
+    icon: (
+      <img
+        src={devIcon}
+        alt="Training Icon"
+        className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+      />
+    ),
     subServices: [
       "Lead Auditor Training",
       "NGMO Training",
       "Internal Auditor Training",
       "Hygiene Rating Auditor Training ",
-      "FSSAI Training (Special, Advance & Basic)",
+      "FoSTaC Training",
+      "RCA",
       "Sampling & Testing",
-      "RCP",
-      "Documentaton",
+      
+      "Documentation",
       "Customized Training",
     ],
   },
   {
     title: "Retail",
-    icon: <FaShopify />,
+    // 🔄 Updated icon
+    icon: (
+      <img
+        src={retailIcon}
+        alt="Retail Icon"
+        className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+      />
+    ),
     subServices: [
       "Hygiene Rating Scheme",
       "Eat Right Scheme",
       "BHOG, Fruits & Vegetables",
       "FSSAI Third Party Audit",
       "Zed Assessment",
+      "Food Services Establishments",
+      "Restaurants",
+"Cafeterias",
+"Dhabas",
+"Hotels",
+"Meat Retail",
+"Eat Right Campus",
+"School canteens",
+"University Campuses canteens",
+"Clean Street Food"
     ],
   },
   {
     title: "Specialization",
     icon: <FaTint />,
-    subServices: [
-      
-      "Internal Audits",
-      "Gap Analysis",
-      "Food Safety Audits",
-      
-    ],
+    subServices: ["Internal Audits", "Gap Analysis", "Food Safety Audits"],
   },
 ];
 
@@ -161,7 +180,7 @@ const subServiceRoutes = {
   "Hygiene Rating Auditor Training": "/services/hygiene-rating-training",
   "FSSAI Training (Special, Advance & Basic)": "/services/fssai-training",
   "Sampling & Testing": "/services/sampling-testing",
-  RCP: "/services/rcp",
+  RCA: "/services/rca",
   Documentaton: "/services/documentation",
   "Customized Training": "/services/customized-training",
   "Hygiene Rating Scheme": "/services/hygiene-rating-scheme",
@@ -171,8 +190,8 @@ const subServiceRoutes = {
   "Zed Assessment": "/services/zed-assessment",
   "Internal Audits": "/services/internal-audits",
   "Gap Analysis": "/services/gap-analysis",
-  "Food Safety Audits":"/services/foodsafety",
-  "SQF Certification" : "services/sqf",
+  "Food Safety Audits": "/services/foodsafety",
+  "SQF Certification": "services/sqf",
 };
 
 const ServicesGrid = () => {
@@ -193,15 +212,14 @@ const ServicesGrid = () => {
   });
 
   const handleSubServiceClick = (sub) => {
-  const route = subServiceRoutes[sub];
-  if (route) {
-    window.scrollTo(0, 0); // Scroll to top before navigation
-    navigate(route);
-  } else {
-    alert(`No page linked for: ${sub}`);
-  }
-};
-
+    const route = subServiceRoutes[sub];
+    if (route) {
+      window.scrollTo(0, 0); // Scroll to top before navigation
+      navigate(route);
+    } else {
+      alert(`No page linked for: ${sub}`);
+    }
+  };
 
   const toggleService = (title) => {
     setOpenService(openService === title ? null : title);
@@ -260,9 +278,7 @@ const ServicesGrid = () => {
                     <FaChevronDown className="text-orange-500 text-sm" />
                   )}
                 </h3>
-                <p className="text-xs text-gray-500 mt-2">
-                  Tap to explore more
-                </p>
+                <p className="text-xs text-gray-500 mt-2">Tap to explore more</p>
               </div>
 
               {/* Sub-Services (Expand on Click) */}

@@ -40,27 +40,38 @@ const AboutUs = () => {
 
       {/* Main Sections */}
       <div className="space-y-20 max-w-6xl mx-auto text-justify">
-        <Section title="Who We Are?" delay={0.1}>
-          <strong className="text-orange-600">Fortune</strong>{" "}
-          <span>
-            <strong className="text-blue-500">Consultants</strong>
-          </span>{" "}
-          is an Entity established in the year{" "}
-          <strong className="text-orange-600">2021</strong> with an ambitious
-          vision and focus of providing tailor-made, specific, cost-effective &
-          efficient services to the clients (starting from budding Entrepreneurs
-          to established organizations) to ensure a sustainable growth in the
-          field of{" "}
-          <strong className="text-orange-600">
-            Food Safety, Quality, EHS, OHSAS, Safety, Sustainability and Social
-            Standards, etc.
-          </strong>
-          <br />
-          <br />
-          Fortune Consultant’s Team is having more than 25 years of industry
-          experience. The team is a gamut of Technical, Commercial, R&D, Legal,
-          Marketing, Trainer, Auditors, etc.
-        </Section>
+        <div className="space-y-16 max-w-6xl mx-auto text-justify px-4">
+  <Section title="Who We Are?" delay={0.1}>
+    {/* Animated Title */}
+    <div className="flex flex-wrap items-center justify-center gap-2 text-3xl font-extrabold tracking-wide ">
+      <h3 className="text-orange-600 animate-fade-in ">Fortune</h3>
+      <h3 className="text-orange-600 animate-slide-in ">Consultants</h3>
+      <h3 className="text-green-800 animate-glow ">
+        : A Decade-Long Vision Realized
+      </h3>
+      
+    </div>
+
+    {/* Description */}
+    <p className="mt-8 text-lg leading-relaxed text-gray-700 animate-fade-in-up">
+      <span className="font-semibold text-orange-600">Fortune Consultants</span>, 
+      formally established in <strong className="text-orange-600">2021</strong>, is the culmination of a vision that began 
+      over a decade ago—driven by the need for specialized, efficient, and cost-effective consulting services across critical domains. 
+      With a deep commitment to empowering clients—from emerging entrepreneurs to established enterprises—
+      <span className="font-semibold text-orange-600"> Fortune Consultants</span> delivers tailor-made solutions that foster sustainable growth in areas such as{" "}
+      <span className="font-semibold text-orange-600">
+        Food Safety, Quality Assurance, EHS, OHSAS, Safety Management, Sustainability, and Social Standards.
+      </span>
+    </p>
+
+    <p className="mt-6 text-lg leading-relaxed text-gray-700 animate-fade-in-up delay-300">
+      Our team brings together over <strong className="text-orange-600">25 years</strong> of diverse industry experience, forming a robust collective of 
+      professionals spanning technical, commercial, legal, R&D, marketing, training, and auditing expertise. This multidisciplinary approach 
+      ensures that every client engagement is grounded in practical insight, strategic foresight, and measurable impact.
+    </p>
+  </Section>
+</div>
+
 
         <Section title="Our Vision" delay={0.2}>
   <div className="text-center max-w-4xl mx-auto bg-gradient-to-r from-orange-50 via-white to-orange-50 rounded-2xl shadow-md p-8">

@@ -6,9 +6,9 @@ const Certifications = () => {
     "ISO 22000:2018", "ISO 45001:2018", "ISO 9001:2015", "ISO 14001:2015",
     "FSSC 22000", "HACCP", "Non-GMO", "BRCGS",
     "BHOG Scheme", "Clean Street Food", "Proterra", "Eat Right Campus",
-    "Sustainability", "FosTaC Training", "GMP+", "Sedex /Smeta",
+    "Sustainability", "FoSTaC Training", "GMP+", "Sedex /SMETA",
     "USFDA Registration", "Halal Certification", "Kosher Certification", "ZED Scheme",
-    "RTRS", "Schedule IV Third party Auditing", "Hygiene Rating Scheme", "FSSAI License Registration Return Filing"
+    "RTRS", "Schedule IV Third party Auditing", "Hygiene Rating Scheme", "FSSAI Third Party Auditing"
   ];
 
   const [showAll, setShowAll] = useState(false);

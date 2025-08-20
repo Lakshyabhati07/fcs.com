@@ -6,7 +6,8 @@ import ChevronUp from "lucide-react/dist/esm/icons/chevron-up";
 
 import { motion, AnimatePresence } from "framer-motion";
 import logo1 from "../assets/bg1.webp";
-
+import devIcon from "../assets/dev.png";
+import retailIcon from "../assets/retail.png";
 import {
   FaLeaf,
   FaRecycle,
@@ -15,8 +16,6 @@ import {
   FaUtensils,
   FaProjectDiagram,
   FaTint,
-  FaShopify,
-  FaDev,
 } from "react-icons/fa";
 
 // Service categories with subservices
@@ -80,31 +79,58 @@ const allServices = [
     ],
   },
   {
-    title: "Training and Development",
-    icon: <FaDev />,
-    subServices: [
-      "Lead Auditor Training",
-      "NGMO Training",
-      "Internal Auditor Training",
-      "Hygiene Rating Auditor Training",
-      "FSSAI Training (Special, Advance & Basic)",
-      "Sampling & Testing",
-      "RCP",
-      "Documentaton",
-      "Customized Training",
-    ],
-  },
+      title: "Training and Development",
+      // 🔄 Updated icon
+      icon: (
+        <img
+          src={devIcon}
+          alt="Training Icon"
+          className="w-4 h-4 sm:w-6 sm:h-6 object-contain"
+        />
+      ),
+      subServices: [
+        "Lead Auditor Training",
+        "NGMO Training",
+        "Internal Auditor Training",
+        "Hygiene Rating Auditor Training ",
+        "FoSTaC Training",
+        "RCA",
+        "Sampling & Testing",
+        
+        "Documentation",
+        "Customized Training",
+      ],
+    },
   {
-    title: "Retail",
-    icon: <FaShopify />,
-    subServices: [
-      "Hygiene Rating Scheme",
-      "Eat Right Scheme",
-      "BHOG, Fruits & Vegetables",
-      "FSSAI Third Party Audit",
-      "Zed Assessment",
-    ],
-  },
+      title: "Retail",
+      // 🔄 Updated icon
+      icon: (
+        <img
+          src={retailIcon}
+          alt="Retail Icon"
+          className="w-4 h-4 sm:w-6 sm:h-6 object-contain"
+        />
+      ),
+      subServices: [
+        "Hygiene Rating Scheme",
+        "Eat Right Scheme",
+        "BHOG, Fruits & Vegetables",
+        "FSSAI Third Party Audit",
+        "University Campuses canteens",
+        
+        "Food Services Establishments",
+        "Restaurants",
+  "Cafeterias",
+  "Dhabas",
+  "Hotels",
+  
+  "Clean Street Food",
+  "Eat Right Campus",
+  "School canteens",
+  "Zed Assessment",
+  "Meat Retail",
+      ],
+    },
   {
     title: "Specialization",
     icon: <FaTint />,
@@ -157,7 +183,7 @@ const subServiceRoutes = {
   "Hygiene Rating Auditor Training": "/services/hygiene-rating-training",
   "FSSAI Training (Special, Advance & Basic)": "/services/fssai-training",
   "Sampling & Testing": "/services/sampling-testing",
-  RCP: "/services/rcp",
+  RCA: "/services/rca",
   Documentaton: "/services/documentation",
   "Customized Training": "/services/customized-training",
   "Hygiene Rating Scheme": "/services/hygiene-rating-scheme",

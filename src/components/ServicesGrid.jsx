@@ -295,7 +295,11 @@ const ServicesGrid = () => {
                       {service.subServices.map((sub, idx) => (
                         <div
                           key={idx}
-                          className="bg-orange-50 px-3 py-2 rounded-md hover:bg-orange-100 cursor-pointer text-center text-sm break-words min-w-[100px]"
+                          className="bg-orange-50 px-4 py-3 rounded-lg shadow-sm 
+               hover:bg-orange-100 cursor-pointer 
+               text-center text-sm sm:text-base font-medium text-gray-700 
+               transition-all duration-200 break-words leading-snug 
+               min-h-[60px] flex items-center justify-center"
                           onClick={(e) => {
                             e.stopPropagation(); // Prevent closing parent on click
                             handleSubServiceClick(sub);

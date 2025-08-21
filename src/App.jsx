@@ -11,7 +11,7 @@ import ContactUs from "./pages/ContactUs";
 
 import Home from "./pages/Home";
 
-
+import ComingSoon from "./pages/ComingSoon";
 import RequestCallback from "./pages/RequestCallback";
 
 // ---- Service Detail Pages ----
@@ -158,7 +158,7 @@ function App() {
           <Route path="/services/gap-analysis" element={<GapAnalysis />} />
 
           
-
+          <Route path="/services/:slug" element={<ComingSoon />} />
           <Route path="/requestCallback" element={<RequestCallback />} />
           <Route path="/fcs.com" element={<Home/>}/>
           <Route

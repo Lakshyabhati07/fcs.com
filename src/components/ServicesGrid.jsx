@@ -212,14 +212,17 @@ const ServicesGrid = () => {
   });
 
   const handleSubServiceClick = (sub) => {
-    const route = subServiceRoutes[sub];
-    if (route) {
-      window.scrollTo(0, 0); // Scroll to top before navigation
-      navigate(route);
-    } else {
-      alert(`No page linked for: ${sub}`);
-    }
-  };
+  const route = subServiceRoutes[sub];
+  window.scrollTo(0, 0); // Scroll to top before navigation
+
+  if (route) {
+    navigate(route);
+  } else {
+    // ✅ Fallback page if no route exists
+    navigate(`/services/${sub.toLowerCase().replace(/\s+/g, "-")}`);
+  }
+};
+
 
   const toggleService = (title) => {
     setOpenService(openService === title ? null : title);

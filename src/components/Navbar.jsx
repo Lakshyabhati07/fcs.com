@@ -102,7 +102,7 @@ const allServices = [
       ],
     },
   {
-      title: "Retail",
+      title: "Food Retail & Establishments",
       // 🔄 Updated icon
       icon: (
         <img

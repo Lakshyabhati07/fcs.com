@@ -8,7 +8,7 @@ const Certifications = () => {
     "BHOG Scheme", "Clean Street Food", "Proterra", "Eat Right Campus",
     "Sustainability", "FoSTaC Training", "GMP+", "Sedex /SMETA",
     "USFDA Registration", "Halal Certification", "Kosher Certification", "ZED Scheme",
-    "RTRS", "Schedule IV Third party Auditing", "Hygiene Rating Scheme", "FSSAI Third Party Auditing"
+    "RTRS", "Hygiene Rating Scheme", "FSSAI Third Party Auditing"
   ];
 
   const [showAll, setShowAll] = useState(false);

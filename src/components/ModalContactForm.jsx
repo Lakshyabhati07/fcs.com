@@ -42,7 +42,7 @@ const ModalContactForm = () => {
     setLoading(true); // start loading
 
     try {
-      const res = await fetch("http://localhost:8000/send_email.php", {
+      const res = await fetch("https://fortunecpl.in/backend/send_email.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

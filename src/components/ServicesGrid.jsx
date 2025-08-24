@@ -285,36 +285,38 @@ const ServicesGrid = () => {
               </div>
 
               {/* Sub-Services (Expand on Click) */}
-              <AnimatePresence>
-                {openService === service.title && service.subServices && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="mt-4 overflow-hidden"
-                  >
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                      {service.subServices.map((sub, idx) => (
-                        <div
-                          key={idx}
-                          className="bg-orange-50 px-4 py-3 rounded-lg shadow-sm 
-               hover:bg-orange-100 cursor-pointer 
-               text-center text-sm sm:text-base font-medium text-gray-700 
-               transition-all duration-200 break-words leading-snug 
-               min-h-[60px] flex items-center justify-center"
-                          onClick={(e) => {
-                            e.stopPropagation(); // Prevent closing parent on click
-                            handleSubServiceClick(sub);
-                          }}
-                        >
-                          {sub}
-                        </div>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              {/* Sub-Services (Expand on Click) */}
+<AnimatePresence>
+  {openService === service.title && service.subServices && (
+    <motion.div
+      initial={{ height: 0, opacity: 0 }}
+      animate={{ height: "auto", opacity: 1 }}
+      exit={{ height: 0, opacity: 0 }}
+      transition={{ duration: 0.3 }}
+      className="mt-4 overflow-hidden"
+    >
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+        {service.subServices.map((sub, idx) => (
+          <div
+            key={idx}
+            className="bg-orange-50 px-3 py-2 rounded-lg shadow-sm 
+              hover:bg-orange-100 cursor-pointer 
+              text-center text-sm sm:text-base font-medium text-gray-700 
+              transition-all duration-200 break-words 
+              flex items-center justify-center"
+            onClick={(e) => {
+              e.stopPropagation(); // Prevent closing parent on click
+              handleSubServiceClick(sub);
+            }}
+          >
+            {sub}
+          </div>
+        ))}
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
+
             </motion.div>
           ))
         ) : (

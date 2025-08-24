@@ -35,7 +35,7 @@ const ContactUs = () => {
                 href="mailto:fortuneconsultants23@gmail.com"
                 className="text-blue-700 underline"
               >
-                fortuneconsultants23@gmail.com
+                info@fortunecpl.in
               </a>
             </p>
           </div>

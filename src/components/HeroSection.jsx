@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ModalContactForm from "./ModalContactForm";// Import your existing contact form
+import { Link } from "react-router-dom";
 
 import img1 from "../assets/img1.webp";
 import img2 from "../assets/img2.webp";
@@ -90,50 +91,47 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-3xl mx-4 sm:mx-auto bg-gradient-to-br from-white/80 via-white/70 to-white/60 backdrop-blur-sx p-6 sm:p-10 rounded-3xl shadow-2xl border border-white/40">
-        <motion.h1
-          initial={{ opacity: 0, y: -40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-3xl sm:text-4xl md:text-6xl font-black text-blue-800 leading-tight drop-shadow-sm"
-        >
-          Welcome <br />
-          <span className="text-blue-800">to</span> <br />
-          <span className="text-orange-600">Fortune </span>
-          <span className="text-green-600">Consultants</span>
-        </motion.h1>
+<div className="relative z-10 max-w-xl mx-4 sm:mx-auto bg-gradient-to-br from-white/80 via-white/70 to-white/60 backdrop-blur-sx p-4 sm:p-6 rounded-2xl shadow-xl border border-white/40 scale-90">
+  <motion.h1
+    initial={{ opacity: 0, y: -40 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    className="text-2xl sm:text-3xl md:text-4xl font-black text-blue-800 leading-tight drop-shadow-sm"
+  >
+    Welcome <br />
+    <span className="text-blue-800">to</span> <br />
+    <span className="text-orange-600">Fortune </span>
+    <span className="text-green-600">Consultants</span>
+  </motion.h1>
 
-        <p className="text-blue-800 mt-4 sm:mt-6 text-lg sm:text-xl md:text-2xl font-medium">
-          Your <span className="text-orange-600 font-bold italic">sustainable</span> 
-          <span className="text-orange-600 font-bold italic"> growth &
-          compliance</span>  partner.
-        </p>
+  <p className="text-blue-800 mt-3 sm:mt-4 text-base sm:text-lg md:text-xl font-medium">
+    Your <span className="text-orange-600 font-bold italic">sustainable</span> 
+    <span className="text-orange-600 font-bold italic"> growth & compliance</span> partner.
+  </p>
 
-        <motion.div
-          className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-4 justify-center"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-        >
-          <motion.a
-  href="/contact"
-  whileHover={{ scale: 1.07 }}
-  className="w-full sm:w-auto text-center bg-green-700 text-white px-6 py-3 rounded-full font-bold shadow-lg hover:bg-green-800 transition-all duration-300 ease-in-out"
->
-  💬 Let's Talk
-</motion.a>
+  <motion.div
+    className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 justify-center"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ delay: 0.5 }}
+  >
+     <Link
+    to="/contact"
+    className="w-full sm:w-auto text-center bg-green-700 text-white px-6 py-3 rounded-full font-bold shadow-lg hover:bg-green-800 transition-all duration-300 ease-in-out"
+  >
+    💬 Let's Talk
+  </Link>
 
+    <motion.button
+      onClick={() => setIsModalOpen(true)}
+      whileHover={{ scale: 1.07 }}
+      className="inline-block bg-orange-700 text-white px-5 sm:px-6 py-2.5 rounded-full font-bold shadow-lg hover:bg-orange-800 transition-all duration-300 ease-in-out text-sm sm:text-base"
+    >
+      Request a Callback
+    </motion.button>
+  </motion.div>
+</div>
 
-          {/* Request Callback Button */}
-          <motion.button
-            onClick={() => setIsModalOpen(true)}
-            whileHover={{ scale: 1.07 }}
-            className="inline-block bg-orange-700 text-white px-6 sm:px-7 py-3 rounded-full font-bold shadow-lg hover:bg-orange-800 transition-all duration-300 ease-in-out text-center"
-          >
-            Request a Callback
-          </motion.button>
-        </motion.div>
-      </div>
 
       {/* Contact Modal */}
       {isModalOpen && (

@@ -45,11 +45,13 @@ const ContactForm = () => {
     setLoading(true); // ✅ start spinner
 
     try {
-      const res = await fetch("http://localhost:5000/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const res = await fetch("http://localhost:8000/send_email.php", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(formData),
+});
+
+
 
       if (!res.ok) throw new Error("Failed to send message");
 

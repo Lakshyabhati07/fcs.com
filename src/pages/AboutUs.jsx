@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-
+import { Helmet } from "react-helmet-async";
 const Section = ({ title, children, delay = 0 }) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
@@ -20,6 +20,16 @@ const Section = ({ title, children, delay = 0 }) => (
 
 const AboutUs = () => {
   return (
+    <>
+     <Helmet>
+        <title>About Us - Fortune Consultants</title>
+        <meta 
+          name="description" 
+          content="Learn more about Fortune Consultants, our mission, vision, and expertise in food safety and consultancy services." 
+        />
+        <meta name="keywords" content="About Fortune Consultants, food safety experts, consultancy services, HACCP, ISO" />
+        <link rel="canonical" href="https://yourwebsite.com/about" />
+      </Helmet>
     <div id="about" className="bg-gradient-to-tl from-green-100 via-lime-50 to-white min-h-screen py-16 px-6 sm:px-12 text-gray-800 font-sans">
       {/* Intro Section */}
       <motion.div
@@ -134,6 +144,7 @@ const AboutUs = () => {
         </Section>
       </div>
     </div>
+    </>
   );
 };
 

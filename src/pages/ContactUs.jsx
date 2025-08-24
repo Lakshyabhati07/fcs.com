@@ -1,9 +1,19 @@
 // src/components/ContactUs.jsx
 
 import { PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
-
+import { Helmet } from "react-helmet-async";
 const ContactUs = () => {
   return (
+    <>
+    <Helmet>
+        <title>Contact Us - Fortune Consultants</title>
+        <meta 
+          name="description" 
+          content="Get in touch with Fortune Consultants for expert guidance in food safety, audits, and compliance." 
+        />
+        <meta name="keywords" content="Contact Fortune Consultants, food safety consultancy, audits, compliance, support" />
+        <link rel="canonical" href="https://yourwebsite.com/contact" />
+      </Helmet>
     <section
       id="contact"
       className="min-h-screen flex flex-col justify-center bg-gradient-to-br from-white via-lime-50 to-green-100 py-12 px-4 sm:px-8"
@@ -49,6 +59,7 @@ const ContactUs = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

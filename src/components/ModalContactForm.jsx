@@ -10,6 +10,7 @@ const ModalContactForm = () => {
 
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false); // NEW state for loading
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -38,8 +39,10 @@ const ModalContactForm = () => {
     e.preventDefault();
     if (!validateForm()) return;
 
+    setLoading(true); // start loading
+
     try {
-      const res = await fetch("http://localhost:5000/api/contact", {
+      const res = await fetch("http://localhost:8000/send_email.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -48,13 +51,14 @@ const ModalContactForm = () => {
       if (!res.ok) throw new Error("Failed to send message");
 
       setStatus("Thanks for contacting us! We'll connect you shortly. ✅");
-     
       setFormData({ name: "", email: "", mobile: "", message: "" });
       setErrors({});
       setTimeout(() => setStatus(""), 5000);
     } catch (error) {
       console.error(error);
       setStatus("Something went wrong ❌");
+    } finally {
+      setLoading(false); // stop loading
     }
   };
 
@@ -66,7 +70,7 @@ const ModalContactForm = () => {
       </h2>
 
       <form onSubmit={handleSubmit} className="space-y-5">
-        {/* Input Field */}
+        {/* Input Fields */}
         {["name", "mobile", "email"].map((field) => (
           <div key={field}>
             <input
@@ -82,6 +86,7 @@ const ModalContactForm = () => {
               value={formData[field]}
               onChange={handleChange}
               className="w-full border border-gray-300 bg-white/70 rounded-xl px-4 py-3 shadow-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300"
+              disabled={loading}
             />
             {errors[field] && (
               <p className="text-red-500 text-xs mt-1">{errors[field]}</p>
@@ -97,6 +102,7 @@ const ModalContactForm = () => {
             placeholder="Your Message"
             value={formData.message}
             onChange={handleChange}
+            disabled={loading}
             className="w-full border border-gray-300 bg-white/70 rounded-xl px-4 py-3 shadow-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300"
           ></textarea>
           {errors.message && (
@@ -107,10 +113,14 @@ const ModalContactForm = () => {
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 text-white font-semibold py-3 rounded-xl shadow-lg transform transition-all hover:scale-105 hover:shadow-xl relative overflow-hidden"
+          disabled={loading}
+          className={`w-full ${
+            loading
+              ? "bg-gray-400 cursor-not-allowed"
+              : "bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:scale-105 hover:shadow-xl"
+          } text-white font-semibold py-3 rounded-xl shadow-lg transform transition-all relative overflow-hidden`}
         >
-          <span className="relative z-10">Submit</span>
-          <div className="absolute inset-0 bg-white/20 blur-md opacity-0 hover:opacity-100 transition-opacity"></div>
+          {loading ? "Submitting..." : "Submit"}
         </button>
 
         {/* Status Message */}

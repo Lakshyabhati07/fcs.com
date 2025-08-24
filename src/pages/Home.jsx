@@ -9,8 +9,11 @@ import AboutUs from "./AboutUs";
 import CoreValues from "../components/CoreValues";
 import WhatsAppButton from "../components/WhatsAppButton";
 import Certifications from "../components/Certifications";
+
 const Home = () => {
   return (
+  
+    
     <div className="bg-white text-gray-800">
       <HeroSection/>
       <CoreValues/>
@@ -21,6 +24,7 @@ const Home = () => {
       <ContactForm/>
       <Chatbot/> 
     </div>
+   
   );
 };
 
